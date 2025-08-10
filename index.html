@@ -39,9 +39,37 @@
         .timeline-header {
             background: linear-gradient(135deg, #2c3e50, #34495e);
             color: white;
-            padding: 12px 20px;
+            padding: 12px 20px 8px 20px;
             text-align: center;
             flex-shrink: 0;
+        }
+        
+        .column-headers {
+            display: flex;
+            margin-top: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.95;
+        }
+        
+        .phase-column {
+            width: 180px;
+            text-align: center;
+            padding: 8px;
+            border-right: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .outcomes-column, .deliverables-column, .metrics-column {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            border-right: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .metrics-column {
+            border-right: none;
         }
         
         .timeline-header h1 {
@@ -145,7 +173,7 @@
         
         .outcomes, .deliverables, .metrics {
             flex: 1;
-            padding: 8px 12px;
+            padding: 12px 16px;
             border-right: 1px solid #f0f0f0;
             overflow-y: auto;
             min-width: 0;
@@ -188,8 +216,8 @@
         
         .content-list {
             list-style: none;
-            font-size: 11px;
-            line-height: 1.3;
+            font-size: 13px;
+            line-height: 1.4;
             font-weight: 400;
             flex: 1;
             display: flex;
@@ -335,6 +363,12 @@
         <div class="timeline-header">
             <h1>Jaeger OTel Demo Project Timeline</h1>
             <p>Complete roadmap from pre-selection to final delivery</p>
+            <div class="column-headers">
+                <div class="phase-column">Phase</div>
+                <div class="outcomes-column">Outcomes to Achieve</div>
+                <div class="deliverables-column">Deliverables</div>
+                <div class="metrics-column">Success Metrics</div>
+            </div>
         </div>
         
         <div class="timeline-content">
@@ -346,7 +380,6 @@
                 </div>
                 <div class="phase-content">
                     <div class="outcomes">
-                        <div class="section-title">Outcomes to Achieve</div>
                         <ul class="content-list">
                             <li>Build context on Jaeger + OTel Demo repos</li>
                             <li>Gain trust with maintainers via significant PRs</li>
@@ -354,7 +387,6 @@
                         </ul>
                     </div>
                     <div class="deliverables">
-                        <div class="section-title">Deliverables</div>
                         <ul class="content-list">
                             <li>3–4 significant PRs (feature improvements, Helm/CI enhancements)</li>
                             <li>Local OTel Demo setup notes</li>
@@ -362,7 +394,6 @@
                         </ul>
                     </div>
                     <div class="metrics">
-                        <div class="section-title">Success Metrics</div>
                         <ul class="content-list">
                             <li>PRs merged pre-selection</li>
                             <li>OTel Demo deploys locally without errors</li>
@@ -380,7 +411,6 @@
                 </div>
                 <div class="phase-content">
                     <div class="outcomes">
-                        <div class="section-title">Outcomes to Achieve</div>
                         <ul class="content-list">
                             <li>Define success metrics with mentors</li>
                             <li>High-level architecture review</li>
@@ -388,14 +418,12 @@
                         </ul>
                     </div>
                     <div class="deliverables">
-                        <div class="section-title">Deliverables</div>
                         <ul class="content-list">
                             <li>Approved architecture diagram & deployment plan</li>
                             <li>Confirmed metrics & validation tests</li>
                         </ul>
                     </div>
                     <div class="metrics">
-                        <div class="section-title">Success Metrics</div>
                         <ul class="content-list">
                             <li>Mentor sign-off on plan</li>
                             <li>Ready to start deployment work</li>
@@ -412,21 +440,18 @@
                 </div>
                 <div class="phase-content">
                     <div class="outcomes">
-                        <div class="section-title">Outcomes to Achieve</div>
                         <ul class="content-list">
                             <li>Create OKE cluster on OCI</li>
                             <li>Deploy OTel Demo with Jaeger + OpenSearch</li>
                         </ul>
                     </div>
                     <div class="deliverables">
-                        <div class="section-title">Deliverables</div>
                         <ul class="content-list">
                             <li>Helm manifests for namespace, OTel Collector, Jaeger, OpenSearch</li>
                             <li>Working traces visible in Jaeger UI</li>
                         </ul>
                     </div>
                     <div class="metrics">
-                        <div class="section-title">Success Metrics</div>
                         <ul class="content-list">
                             <li>OTel Demo running with traces appearing within ~30s</li>
                             <li>Smoke tests pass</li>
@@ -443,21 +468,18 @@
                 </div>
                 <div class="phase-content">
                     <div class="outcomes">
-                        <div class="section-title">Outcomes to Achieve</div>
                         <ul class="content-list">
                             <li>Implement path-based ingress for /otel-jaeger/ and related UIs</li>
                             <li>Temporary subdomain fallback if required</li>
                         </ul>
                     </div>
                     <div class="deliverables">
-                        <div class="section-title">Deliverables</div>
                         <ul class="content-list">
                             <li>Ingress manifests with TLS</li>
                             <li>Public access to Jaeger, OTel Demo UI, load generator, OpenSearch Dashboards</li>
                         </ul>
                     </div>
                     <div class="metrics">
-                        <div class="section-title">Success Metrics</div>
                         <ul class="content-list">
                             <li>All UIs accessible at demo.jaegertracing.io</li>
                             <li>Latency & path correctness verified</li>
@@ -474,21 +496,18 @@
                 </div>
                 <div class="phase-content">
                     <div class="outcomes">
-                        <div class="section-title">Outcomes to Achieve</div>
                         <ul class="content-list">
                             <li>Build idempotent helm upgrade --install flow</li>
                             <li>Add smoke-test validation step</li>
                         </ul>
                     </div>
                     <div class="deliverables">
-                        <div class="section-title">Deliverables</div>
                         <ul class="content-list">
                             <li>GitHub Actions workflow for weekly redeploys</li>
                             <li>Helm uninstall option</li>
                         </ul>
                     </div>
                     <div class="metrics">
-                        <div class="section-title">Success Metrics</div>
                         <ul class="content-list">
                             <li>Automated redeploy works without errors</li>
                             <li>Smoke tests pass after each deploy</li>
@@ -505,21 +524,18 @@
                 </div>
                 <div class="phase-content">
                     <div class="outcomes">
-                        <div class="section-title">Outcomes to Achieve</div>
                         <ul class="content-list">
                             <li>Midterm review with mentors</li>
                             <li>Optimize OpenSearch performance & stability</li>
                         </ul>
                     </div>
                     <div class="deliverables">
-                        <div class="section-title">Deliverables</div>
                         <ul class="content-list">
                             <li>Resource tuning configs</li>
                             <li>Updated documentation on sizing</li>
                         </ul>
                     </div>
                     <div class="metrics">
-                        <div class="section-title">Success Metrics</div>
                         <ul class="content-list">
                             <li>Mentor approval at midterm</li>
                             <li>No OOM/GC issues under load</li>
@@ -536,7 +552,6 @@
                 </div>
                 <div class="phase-content">
                     <div class="outcomes">
-                        <div class="section-title">Outcomes to Achieve</div>
                         <ul class="content-list">
                             <li>Secure OpenSearch & Dashboards (TLS, RBAC, Secrets)</li>
                             <li>Document architecture & automation for public release</li>
@@ -544,7 +559,6 @@
                         </ul>
                     </div>
                     <div class="deliverables">
-                        <div class="section-title">Deliverables</div>
                         <ul class="content-list">
                             <li>Path-based ingress with TLS & optional basic auth</li>
                             <li>Secrets in k8s Secrets</li>
@@ -552,7 +566,6 @@
                         </ul>
                     </div>
                     <div class="metrics">
-                        <div class="section-title">Success Metrics</div>
                         <ul class="content-list">
                             <li>All services secure</li>
                             <li>Docs live with architecture diagrams</li>
@@ -570,21 +583,18 @@
                 </div>
                 <div class="phase-content">
                     <div class="outcomes">
-                        <div class="section-title">Outcomes to Achieve</div>
                         <ul class="content-list">
                             <li>Handle unexpected delays</li>
                             <li>Final polish & validation</li>
                         </ul>
                     </div>
                     <div class="deliverables">
-                        <div class="section-title">Deliverables</div>
                         <ul class="content-list">
                             <li>Final tested deployment</li>
                             <li>CI/CD logs & final documentation</li>
                         </ul>
                     </div>
                     <div class="metrics">
-                        <div class="section-title">Success Metrics</div>
                         <ul class="content-list">
                             <li>Project meets all expected outcomes</li>
                             <li>Maintainers confirm readiness for ongoing weekly redeploys</li>
